@@ -8,8 +8,16 @@
 
 using namespace std;
 
+// colors
+#define NC "\e[0m"
+#define RED "\e[0;31m"
+#define GRN "\e[0;32m"
+#define CYN "\e[0;36m"
+#define REDB "\e[41m"
+
+
 #define HEIGHT 6
-#define WORDLENGHT 10
+#define WORDLENGHT 6
 
 
 struct Grid 
@@ -31,9 +39,10 @@ struct Grid
     // write a word in the line
     void writeWord(int li, string word);
     
-    // print the grid
-    void printGrid() const;
+
 };
+
+
 
 
 struct WordList
@@ -42,15 +51,36 @@ struct WordList
     int _wsize;
 
     vector<string> _wlist;
-
-    WordList(const int size) : _wsize(size) {};
-    WordList(const int size, string file = "mots_fr.txt" ) : _wsize(size) { read(file);};
+    
+    WordList(const int size, string file = "mots_fr.txt" ) : _wsize(size) { read(file); };
 
     // read a file and store the words in _wlist
     void read( string filename );
 
-    // @return random words
+    bool wordExist( string guess );
+
+    // @return random word
     string randomW() const;
     string randomWSize() const;
 
+};
+
+
+struct Game
+{
+    Grid _g;
+    WordList _wl = WordList(HEIGHT);
+    
+    vector<vector<int>> _answers;
+
+    int _wordsize;
+    string targetW;
+
+    Game( const int size );
+
+    void init();
+    void guess( string guess, int line);
+
+    // print the grid
+    void printGrid() const;
 };

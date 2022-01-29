@@ -8,7 +8,9 @@
 
 - All logic, game function and classes are in `Motus` file.
 
-## Test
+## Run
 
 - You have to `make`
 - Then run `./main`
+
+## Color code
