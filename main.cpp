@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Motus.h"
+#include "Wordle.h"
 
 
 void info()
