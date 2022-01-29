@@ -12,5 +12,3 @@
 
 - You have to `make`
 - Then run `./main`
-
-## Color code
